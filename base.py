@@ -26,3 +26,16 @@ def load_adjacency_list():
             elements = str.split(row, '\t')
             adjcency_li[elements[0]] = elements[1:-1]
     return adjcency_li
+
+
+def load_scc():
+    with open(PATH + 'SCC.txt', 'r') as f:
+        adjcency_li = {}
+        for row in f.readlines():
+            elements = str.split(row, ' ')
+            if str(elements[0]) in adjcency_li.keys():
+                adjcency_li[str(elements[0])].append(elements[1])
+            else:
+                adjcency_li[str(elements[0])] = [elements[1]]
+    return adjcency_li
+
