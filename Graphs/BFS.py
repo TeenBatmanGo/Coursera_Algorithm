@@ -32,7 +32,9 @@ def bfs(graph, start):
     return [v[i] for i in range(n) if visited[v[i]]]
 
 
-result = bfs(testcase, 'A')
-print(result)
+
+if __name__ == '__main__':
+    result = bfs(testcase, 'A')
+    print(result)
 
 

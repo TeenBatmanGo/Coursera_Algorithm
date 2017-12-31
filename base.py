@@ -30,12 +30,9 @@ def load_adjacency_list():
 
 def load_scc():
     with open(PATH + 'SCC.txt', 'r') as f:
-        adjcency_li = {}
+        adjcency_li = []
         for row in f.readlines():
-            elements = str.split(row, ' ')
-            if str(elements[0]) in adjcency_li.keys():
-                adjcency_li[str(elements[0])].append(elements[1])
-            else:
-                adjcency_li[str(elements[0])] = [elements[1]]
+            elements = str.split(row, ' ')[:-1]
+            adjcency_li.append(elements)
     return adjcency_li
 
