@@ -1,6 +1,5 @@
 
 import base
-import numpy as np
 
 adjacency_dict = base.load_dijkstradata()
 
@@ -33,36 +32,21 @@ def dijkstra(graph, start):
     B = {start: [start]}
     included = list(A.keys())
     while len(included) < len(list(graph.keys())):
-        dist_li = []
+        mindist, min_v = 1e8, start
         for v in included:
             neigh = get_neighbours(graph, v)
-
-            if len(neigh)==0:
-                continue
-
-            dist_li_sub = []
             for i in range(len(neigh)):
+                if neigh[i] not in included:
+                    dist = get_dist(graph, v, neigh[i]) + A[v]
+                    if dist<mindist:
+                        min_v = v
+                        min_w = neigh[i]
+                        mindist = dist
 
-                if neigh[i] in included:
-                    dist_li_sub.append(1e8)
-                    continue
-
-                dist = get_dist(graph, v, neigh[i]) + A[v]
-                dist_li_sub.append(dist)
-
-            if len(dist_li_sub) == 0:
-                continue
-
-            ind = np.argmin(dist_li_sub)
-            w = neigh[ind]
-            dist_li.append((v, w, dist_li_sub[ind]))
-
-        ind = np.argmin([i[2] for i in dist_li])
-        v, w, dist = dist_li[ind]
-        B[w] = B[v] + [w]
-        A[w] = dist
-        included.append(w)
-        print('\nShortest Path to', w, 'is', B[w], '\nDistance is', A[w])
+        B[min_w] = B[min_v] + [min_w]
+        A[min_w] = mindist
+        included.append(min_w)
+        print('\nShortest Path to', min_w, 'is', B[min_w], '\nDistance is', A[min_w])
 
     return A
 
@@ -71,9 +55,9 @@ def dijkstra(graph, start):
 
 if __name__ == '__main__':
     result = dijkstra(testcase1, '1')
-    print('\n', result)
+    print('\n', result, sep='')
     # result = dijkstra(adjacency_dict, '1')
     # temp = []
     # for i in [7,37,59,82,99,115,133,165,188,197]:
     #     temp.append(result[str(i)])
-    # print('\n', temp)
+    # print('\n', temp, sep='')
