@@ -46,6 +46,10 @@ testcase2 = [['1', '2'],
              ['12', '10']]
 
 
+def sort_strings(x):
+    x = np.sort([int(i) for i in x])[::-1]
+    x = [str(i) for i in x]
+    return x
 
 
 def to_dict(li, reverse=False):
@@ -75,8 +79,6 @@ def dfs_loop(graph, ordering, v, n, loop=1):
     num_li = [0]
     for vi in ordering:
         if not visited[vi]:
-            if loop == 2:
-                print(vi)
             curr_time, num = dfs(graph, vi, visited, curr_time, loop)
             num_li.append(num)
     if loop == 1:
@@ -98,8 +100,7 @@ def dfs(graph, start, visited, curr_time, loop=1):
             visited[w] = True
             dfs(graph, w, visited, curr_time, loop)
 
-    if loop == 2:
-        s += 1
+    s = s + 1 if loop == 2 else s
     t += 1
     curr_time[start] = t
     if loop == 1:
@@ -115,10 +116,10 @@ def scc():
     graph = to_dict(adjacency_li)
 
     ordering = list(graph_reverse.keys())
-    ordering = np.sort([int(i) for i in ordering])[::-1]
-    ordering = [str(i) for i in ordering]
+    ordering = sort_strings(ordering)
+
     finish_ordering = dfs_loop(graph_reverse, ordering, v, n)
-    print('\nLoop #####################################\n')
+    print('\nSecond Loop #####################################\n')
     leaders = dfs_loop(graph, list(finish_ordering.keys())[::-1], v, n, 2)
     print(leaders)
 

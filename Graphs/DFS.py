@@ -1,11 +1,4 @@
 
-testcase = {'dkpg':['multiarch_support', 'coreutils', 'tar', 'libbz2'],
-            'coreutils':['libbz2', 'libselinux1'],
-            'multiarch_support':[],
-            'libselinux1':['multiarch_support'],
-            'libbz2':['libselinux1'],
-            'tar':[]}
-
 
 testcase1 = {'A': ('B', 'E'),
              'B': ('A', 'C', 'D', 'F'),
