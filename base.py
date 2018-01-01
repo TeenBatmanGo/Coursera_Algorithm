@@ -36,3 +36,11 @@ def load_scc():
             adjcency_li.append(elements)
     return adjcency_li
 
+
+def load_dijkstradata():
+    with open(PATH + 'dijkstraData.txt', 'r') as f:
+        adjcency_dict = {}
+        for row in f.readlines():
+            elements = str.split(row, '\t')[:-1]
+            adjcency_dict[elements[0]] = elements[1:]
+    return adjcency_dict
