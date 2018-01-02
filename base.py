@@ -44,3 +44,11 @@ def load_dijkstradata():
             elements = str.split(row, '\t')[:-1]
             adjcency_dict[elements[0]] = elements[1:]
     return adjcency_dict
+
+
+def load_Median():
+    with open(PATH + 'Median.txt', 'r') as f:
+        medians = []
+        for row in f.readlines():
+            medians.append(int(row))
+    return medians
