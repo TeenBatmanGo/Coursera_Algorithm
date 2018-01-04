@@ -52,3 +52,11 @@ def load_Median():
         for row in f.readlines():
             medians.append(int(row))
     return medians
+
+
+def load_2sum():
+    with open(PATH + '2sum.txt', 'r') as f:
+        nums = []
+        for row in f.readlines():
+            nums.append(int(row))
+    return nums
