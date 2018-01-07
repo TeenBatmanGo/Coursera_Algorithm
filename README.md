@@ -32,8 +32,6 @@
 
 ## Supporting files
 
-- data: This folder contains data for testing algorithms.
-
-- base.py: Functions to read data.
-
+- data: This folder contains data for testing algorithms
+- base.py: Functions to read data
 - test.py: Place for testing algorithms
