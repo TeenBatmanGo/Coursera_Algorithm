@@ -60,3 +60,98 @@ def load_2sum():
         for row in f.readlines():
             nums.append(int(row))
     return nums
+
+
+def load_jobs():
+    with open(PATH + 'jobs.txt', 'r') as f:
+        next(f)
+        jobs = {}
+        cnt = 1
+        for row in f.readlines():
+            row = row[:-1]
+            elements = row.split(' ')
+            jobs[str(cnt)] = [int(i) for i in elements]
+            cnt += 1
+    return jobs
+
+
+def load_edges():
+    with open(PATH + 'edges.txt', 'r') as f:
+        next(f)
+        edges = {}
+        for row in f.readlines():
+            row = row[:-1]
+            elements = row.split(' ')
+            edges[(elements[0], elements[1])] = int(elements[2])
+    return edges
+
+
+def load_clustering():
+    with open(PATH + 'clustering1.txt', 'r') as f:
+        next(f)
+        clusters = {}
+        for row in f.readlines():
+            row = row[:-1]
+            elements = row.split(' ')
+            clusters[(elements[0], elements[1])] = int(elements[2])
+    return clusters
+
+
+def load_clustering_big():
+    with open(PATH + 'clustering_big.txt', "r") as f:
+        lines = f.readlines()
+        seq = {}
+        for i, line in enumerate(lines[1:]):
+            bitseq = tuple(bool(int(x)) for x in line.split())
+            seq[bitseq] = True
+    return seq
+
+
+def load_clustering_big_bruteforce():
+    with open(PATH + 'clustering_big.txt', 'r') as f:
+        next(f)
+        clusters = {}
+        for row in f.readlines():
+            row = row[:-1]
+            row = row.replace(' ', '')
+            clusters[row] = True
+    return clusters
+
+
+def load_huffman():
+    import heapq
+    with open(PATH + 'huffman.txt', 'r') as f:
+        next(f)
+        weights = []
+        lines = f.readlines()
+        for i in range(len(lines)):
+            row = lines[i][:-1]
+            heapq.heappush(weights, int(row))
+    return weights
+
+
+def load_mwis():
+    with open(PATH + 'mwis.txt', 'r') as f:
+        next(f)
+        mwis = []
+        for row in f.readlines():
+            row = row[:-1]
+            mwis.append(int(row))
+    return mwis
+
+
+def load_knapsack(small=True):
+    if small:
+        name = 'knapsack1.txt'
+        size = 10000
+    else:
+        name = 'knapsack_big.txt'
+        size = 2000000
+    with open(PATH + name, 'r') as f:
+        next(f)
+        lines = f.readlines()
+        cands = []
+        for i in range(len(lines)):
+            row = lines[i][:-1].split(' ')
+            cands.append([int(j) for j in row])
+    return cands, size
