@@ -3,13 +3,15 @@ import base
 
 cands, SIZE = base.load_knapsack()
 
-# Optimal value: 8;   Optimal Knapsack: [4, 3]
-testcase = [[3, 4], [2, 3], [4, 2], [4, 3]]
+# Optimal value: 9;   Optimal Knapsack: [4, 3]
+# W = 6
+testcase = [[3, 4], [2, 3], [5, 2], [4, 3]]
 
 
 def knapsack(vwlist, W=SIZE):
     N = len(vwlist)
     mat = [[0 for _ in range(W+1)] for _ in range(N+1)]
+    items = {}
     for x in range(1, W+1):
         for j in range(1, N+1):
             vj, wj = vwlist[j-1]
@@ -18,20 +20,11 @@ def knapsack(vwlist, W=SIZE):
                 include = mat[j-1][x-wj]+vj
                 exclude = mat[j][x]
                 mat[j][x] = max(include, exclude)
+                # Keep track of the optimal knapsack items.
+                if include >= exclude:
+                    items[str(x)] = items.get(str(x-wj), []) + [j]
     print_mat(mat)
-
-    # Top down approach to find the optimal knapsack.
-    x, j = W, N
-    optimal_knapsack = []
-    while mat[j][x] != 0:
-        vj, wj = vwlist[j-1]
-        include = mat[j-1][x-wj]+vj
-        exclude = mat[j][x]
-        if include >= exclude:
-            optimal_knapsack.append(j)
-            x -= wj
-        j -= 1
-    return mat[N][W], optimal_knapsack
+    return mat[N][W], items[str(W)]
 
 
 def print_mat(mat):
