@@ -155,3 +155,16 @@ def load_knapsack(small=True):
             row = lines[i][:-1].split(' ')
             cands.append([int(j) for j in row])
     return cands, size
+
+
+def load_g(num=1):
+    with open(PATH + 'g' + str(num) + '.txt', 'r') as f:
+        next(f)
+        dicts = {}
+        for row in f.readlines():
+            u, v, w = [int(x) for x in row.split(' ')]
+            dicts.setdefault(u, {})
+            dicts.setdefault(v, {})
+            dicts[u].setdefault(v, w)
+            dicts[u][v] = min(w, dicts[u][v])
+    return dicts
