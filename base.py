@@ -168,3 +168,42 @@ def load_g(num=1):
             dicts[u].setdefault(v, w)
             dicts[u][v] = min(w, dicts[u][v])
     return dicts
+
+
+def load_tsp():
+    with open(PATH + 'tsp.txt', 'r') as f:
+        next(f)
+        dicts = {}
+        lines = f.readlines()
+        for i in range(len(lines)):
+            x, y = [float(j) for j in lines[i].split(' ')]
+            dicts[i+1] = (x, y)
+    return dicts
+
+
+def load_tsp_half():
+    with open(PATH + 'tsp.txt', 'r') as f:
+        next(f)
+        left, right = {}, {}
+        lines = f.readlines()
+        for i in range(len(lines)):
+            x, y = [float(j) for j in lines[i].split(' ')]
+            if x < 23800:
+                left[i+1] = (x, y)
+            elif x > 24200:
+                right[i-10] = (x, y)
+            else:
+                left[i+1] = (x, y)
+                right[i-10] = (x, y)
+    return left, right
+
+
+def load_nn():
+    with open(PATH + 'nn.txt', 'r') as f:
+        next(f)
+        dicts = {}
+        lines = f.readlines()
+        for i in range(len(lines)):
+            k, x, y = [float(j) for j in lines[i].split(' ')]
+            dicts[int(k)] = (x, y)
+    return dicts
