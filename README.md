@@ -29,6 +29,9 @@
 - Weighted independent sets
 - Knapsack
 - Knapsack based on big dataset
+- All pairs shortest path using Johnson's trick
+- Travelling Salesman problem using Dynamic Programming
+- Travelling Salesman problem using heuristic greedy algorithm
 
 ## Supporting files
 
