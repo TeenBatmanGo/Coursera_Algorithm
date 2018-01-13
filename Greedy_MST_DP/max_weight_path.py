@@ -1,11 +1,6 @@
 
 import base
 
-mwis = base.load_mwis()
-
-# maxsum=4305, points=[1, 3, 5, 7]
-testcase = [1, 200, 20, 4000, 2, 5, 10, 100]
-
 
 # The implementation is based on python indexing (starting from 0)
 def wis_dp(path):
@@ -36,7 +31,10 @@ def wis_dp(path):
 
 
 if __name__ == '__main__':
-    test = [1, 2, 3, 4, 17, 117, 517, 997]
+    # maxsum=4305, points=[1, 3, 5, 7]
+    testcase = [1, 200, 20, 4000, 2, 5, 10, 100]
+
+    mwis = base.load_mwis()
     result = wis_dp(mwis)
 
     output = []

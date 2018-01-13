@@ -2,7 +2,6 @@
 import base
 from merge_sort import merge_sort
 
-arr = base.load_Integer_Array()
 
 def count_inversions(x):
     n = len(x)
@@ -33,4 +32,5 @@ def count_split_inversions(x, B, C):
 
 
 if __name__ == '__main__':
+    arr = base.load_Integer_Array()
     print(count_inversions(arr)[1])

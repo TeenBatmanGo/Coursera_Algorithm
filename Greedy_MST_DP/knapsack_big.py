@@ -1,11 +1,9 @@
 
 import base
 
-cands, SIZE = base.load_knapsack(small=False)
-
 
 # Since we don't need to reconstruct, we only need the previous row.
-def knapsack(vwlist, W=SIZE):
+def knapsack(vwlist, W):
     N = len(vwlist)
     mat = [[0 for _ in range(W+1)] for _ in range(2)]
     for j in range(1, N+1):
@@ -22,5 +20,6 @@ def knapsack(vwlist, W=SIZE):
 
 
 if __name__ == '__main__':
-    result = knapsack(cands)
+    cands, SIZE = base.load_knapsack(small=False)
+    result = knapsack(cands, SIZE)
     print(result)

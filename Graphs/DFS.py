@@ -1,21 +1,4 @@
 
-
-testcase1 = {'A': ('B', 'E'),
-             'B': ('A', 'C', 'D', 'F'),
-             'C': ('B', 'G', 'D'),
-             'D': ('B', 'C', 'G'),
-             'E': 'A',
-             'F': ('G', 'B'),
-             'G': ('C', 'D', 'F')}
-
-
-testcase2 = {'A': ('B', 'C'),
-             'B': 'D',
-             'C': 'D',
-             'D': ()}
-
-
-
 def dfs_loop(graph):
     v = list(graph.keys())
     n = len(v)
@@ -36,5 +19,18 @@ def dfs(graph, start, visited):
 
 
 if __name__ == '__main__':
+    testcase1 = {'A': ('B', 'E'),
+                 'B': ('A', 'C', 'D', 'F'),
+                 'C': ('B', 'G', 'D'),
+                 'D': ('B', 'C', 'G'),
+                 'E': 'A',
+                 'F': ('G', 'B'),
+                 'G': ('C', 'D', 'F')}
+
+    testcase2 = {'A': ('B', 'C'),
+                 'B': 'D',
+                 'C': 'D',
+                 'D': ()}
+
     dfs_loop(testcase2)
 

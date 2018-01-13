@@ -2,10 +2,6 @@
 import base
 import heapq
 
-nums = base.load_Median()
-testcase = [2, 5, 1, 3, 4, 10, 6]
-
-
 
 def heap_median(li):
     H_low = []
@@ -40,5 +36,7 @@ def heap_median(li):
 
 
 if __name__ == '__main__':
+    nums = base.load_Median()
+    testcase = [2, 5, 1, 3, 4, 10, 6]
     result = heap_median(nums)
     print(result)

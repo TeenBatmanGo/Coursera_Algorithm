@@ -1,9 +1,6 @@
 import base
 
 
-adjcency_li = base.load_adjacency_list()
-
-
 def contraction(adj_li, p1, p2):
     # contract p1 and p2 vertices into p1, with p1 element removed.
     p2_val = [val for val in adj_li[p2] if val != p1]
@@ -32,6 +29,8 @@ def karger(adj_li):
 
 
 if __name__ == '__main__':
+    adjcency_li = base.load_adjacency_list()
+
     from copy import deepcopy
     min_num = 1e10
     for i in range(100):

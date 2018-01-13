@@ -1,13 +1,4 @@
 
-testcase = {'A': ('B', 'E'),
-             'B': ('C', 'A', 'F'),
-             'C': ('G', 'D', 'B'),
-             'D': ('E', 'C', 'G'),
-             'E': ('D', 'A'),
-             'F': ('G', 'B'),
-             'G': ('C', 'D', 'F')}
-
-
 def bfs(graph, start):
     v = list(graph.keys())
     n = len(v)
@@ -34,6 +25,14 @@ def bfs(graph, start):
 
 
 if __name__ == '__main__':
+    testcase = {'A': ('B', 'E'),
+                'B': ('C', 'A', 'F'),
+                'C': ('G', 'D', 'B'),
+                'D': ('E', 'C', 'G'),
+                'E': ('D', 'A'),
+                'F': ('G', 'B'),
+                'G': ('C', 'D', 'F')}
+
     result = bfs(testcase, 'A')
     print(result)
 

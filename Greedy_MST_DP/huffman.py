@@ -4,16 +4,6 @@ import heapq
 import numpy as np
 
 
-weights_heap = base.load_huffman()
-
-# min_length=3, max_length=6
-testcase = []
-vals = [895, 121, 188, 953, 378, 849, 153, 579, 144, 727, 589, 301, 442, 327, 930]
-for val in vals:
-    heapq.heappush(testcase, val)
-
-
-
 def huffman(weights):
     n = len(weights)
     original_weights = list(weights)
@@ -44,6 +34,13 @@ def huffman(weights):
 
 
 if __name__ == '__main__':
+    # min_length=3, max_length=6
+    testcase = []
+    vals = [895, 121, 188, 953, 378, 849, 153, 579, 144, 727, 589, 301, 442, 327, 930]
+
+    weights_heap = base.load_huffman()
+    for val in vals:
+        heapq.heappush(testcase, val)
     max_depth, min_depth = huffman(weights_heap)
     print('Maximum code length is', max_depth, '\nMinimum code length is', min_depth)
 

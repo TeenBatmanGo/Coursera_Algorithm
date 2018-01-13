@@ -1,19 +1,6 @@
 
 import base
 
-adjacency_dict = base.load_dijkstradata()
-
-
-testcase1 = {'1': ['2,1', '8,2'],
-             '2': ['1,1', '3,1'],
-             '3': ['2,1', '4,1'],
-             '4': ['3,1', '5,1'],
-             '5': ['4,1', '6,1'],
-             '6': ['5,1', '7,1'],
-             '7': ['6,1', '8,1'],
-             '8': ['7,1', '1,2']}
-
-
 
 def get_neighbours(graph, v):
     li = graph[v]
@@ -54,6 +41,16 @@ def dijkstra(graph, start):
 
 
 if __name__ == '__main__':
+    testcase1 = {'1': ['2,1', '8,2'],
+                 '2': ['1,1', '3,1'],
+                 '3': ['2,1', '4,1'],
+                 '4': ['3,1', '5,1'],
+                 '5': ['4,1', '6,1'],
+                 '6': ['5,1', '7,1'],
+                 '7': ['6,1', '8,1'],
+                 '8': ['7,1', '1,2']}
+
+    adjacency_dict = base.load_dijkstradata()
     result = dijkstra(testcase1, '1')
     print('\n', result, sep='')
     # result = dijkstra(adjacency_dict, '1')

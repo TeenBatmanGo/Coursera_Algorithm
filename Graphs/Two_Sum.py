@@ -1,10 +1,6 @@
 
 import base
 
-data = base.load_2sum()
-
-testcase = [-3, -1, 1, 2, 9, 11, 7, 6, 2]
-
 
 def create_hashtable(nums):
     hashtable = {}
@@ -20,6 +16,9 @@ def twosum(hashtable, target):
 
 
 if __name__ == '__main__':
+    testcase = [-3, -1, 1, 2, 9, 11, 7, 6, 2]
+
+    data = base.load_2sum()
     hash_table = create_hashtable(data)
     cnt = 0
     for i in range(-10000, 10001):

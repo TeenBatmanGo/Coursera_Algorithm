@@ -1,21 +1,15 @@
 
 import base
 
-clusters = base.load_clustering_big()
-
-# answer is 2
-testcase = {(False, False, False, False, True): True,
-            (False, False, False, True, False): True,
-            (False, False, True, False, False): True,
-            (False, True, True, True, True): True,
-            (True, True, True, True, True): True}
-
-
-
-# Every cluster has a leader, when clusters merge together, the leader of the smaller cluster
-# will point to the leader of the bigger one. Other elements stay the same.
 
 class Cluster():
+
+    """
+    Every cluster has a leader, when clusters merge together, the leader of the smaller cluster
+    will point to the leader of the bigger one. Other elements stay the same.
+
+    """
+
     def __init__(self, keys):
         self.size = {i:1 for i in keys}
         self.leader = {i:i for i in keys}
@@ -77,6 +71,14 @@ def mst_clustering(data, bits=24):
 
 
 if __name__ == '__main__':
+    # answer is 2
+    testcase = {(False, False, False, False, True): True,
+                (False, False, False, True, False): True,
+                (False, False, True, False, False): True,
+                (False, True, True, True, True): True,
+                (True, True, True, True, True): True}
+
+    clusters = base.load_clustering_big()
     import time
     start = time.time()
     result = mst_clustering(clusters, 24)

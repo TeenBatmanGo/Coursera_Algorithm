@@ -1,14 +1,8 @@
 
 import base
 
-cands, SIZE = base.load_knapsack()
 
-# Optimal value: 9;   Optimal Knapsack: [4, 3]
-# W = 6
-testcase = [[3, 4], [2, 3], [5, 2], [4, 3]]
-
-
-def knapsack(vwlist, W=SIZE):
+def knapsack(vwlist, W):
     N = len(vwlist)
     mat = [[0 for _ in range(W+1)] for _ in range(N+1)]
     items = {}
@@ -34,5 +28,10 @@ def print_mat(mat):
 
 
 if __name__ == '__main__':
+    # Optimal value: 9;   Optimal Knapsack: [4, 3]
+    # W = 6
+    testcase = [[3, 4], [2, 3], [5, 2], [4, 3]]
+
+    cands, SIZE = base.load_knapsack()
     result, opt_knapsack = knapsack(testcase, 6)
     print('Optimal value:', result, '\nOptimal Knapsack:', opt_knapsack)

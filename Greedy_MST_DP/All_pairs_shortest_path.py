@@ -1,9 +1,6 @@
 
 import base
 
-g = base.load_g(3)
-
-
 
 def bellman_ford(graph, s):
     V = list(graph.keys())
@@ -69,6 +66,7 @@ def johnson(graph):
 
 
 if __name__ == '__main__':
+    g = base.load_g(3)
     result = johnson(g)
     print(result)
 

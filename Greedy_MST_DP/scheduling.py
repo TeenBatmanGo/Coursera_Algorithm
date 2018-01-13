@@ -1,13 +1,6 @@
 
 import base
 
-jobs = base.load_jobs()
-
-testcase = {'1': [8, 50], '2': [74, 59],
-            '3': [31, 73], '4': [45, 79],
-            '5': [24, 10], '6': [41, 66]}
-
-
 
 def key_diff(element):
     return element[0]-element[1], element[0]
@@ -36,5 +29,10 @@ def greedy(dicts, orderby='difference'):
 
 
 if __name__ == '__main__':
+    testcase = {'1': [8, 50], '2': [74, 59],
+                '3': [31, 73], '4': [45, 79],
+                '5': [24, 10], '6': [41, 66]}
+
+    jobs = base.load_jobs()
     time = greedy(jobs, 'ratio')
     print(time)

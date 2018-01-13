@@ -1,21 +1,14 @@
 
 import base
 
-clusters = base.load_clustering_big_bruteforce()
-
-# answer is 2
-testcase = {'00001': True,
-            '00010': True,
-            '00100': True,
-            '01111': True,
-            '11111': True}
-
-
-
-# Every cluster has a leader, when clusters merge together, the leader of the smaller cluster
-# will point to the leader of the bigger one. Other elements stay the same.
 
 class Cluster():
+
+    """
+    Every cluster has a leader, when clusters merge together, the leader of the smaller cluster
+    will point to the leader of the bigger one. Other elements stay the same.
+    """
+
     def __init__(self, keys):
         self.size = {i:1 for i in keys}
         self.leader = {i:i for i in keys}
@@ -71,6 +64,14 @@ def mst_clustering(data):
 
 
 if __name__ == '__main__':
+    # answer is 2
+    testcase = {'00001': True,
+                '00010': True,
+                '00100': True,
+                '01111': True,
+                '11111': True}
+
+    clusters = base.load_clustering_big_bruteforce()
     import time
     start = time.time()
     result = mst_clustering(clusters)
