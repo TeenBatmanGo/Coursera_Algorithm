@@ -207,3 +207,14 @@ def load_nn():
             k, x, y = [float(j) for j in lines[i].split(' ')]
             dicts[int(k)] = (x, y)
     return dicts
+
+
+def load_2sat(num=1):
+    with open(PATH + '2sat' + str(num) + '.txt', 'r') as f:
+        next(f)
+        clauses = []
+        for row in f.readlines():
+            row = row[:-1]
+            row = [int(i) for i in row.split(' ')]
+            clauses.append(row)
+    return clauses

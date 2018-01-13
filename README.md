@@ -19,7 +19,7 @@
 - SCC with recursion
 - SCC without recursion
 
-## Greedy Algorithm and Dynamic Programming
+## Greedy Algorithm, Dynamic Programming and NP complete
 
 - Greedy scheduling
 - Prim's MST
@@ -32,6 +32,7 @@
 - All pairs shortest path using Johnson's trick
 - Travelling Salesman problem using Dynamic Programming
 - Travelling Salesman problem using heuristic greedy algorithm
+- 2 Sat Problem based on randomized local search
 
 ## Supporting files
 
